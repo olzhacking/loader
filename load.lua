@@ -177,7 +177,7 @@ shared.AllowRemoteExecution = shared.AllowRemoteExecution or false
 
 local function fetch_remote_script()
     local suc, res = pcall(function()
-        return game:HttpGet("https://raw.githubusercontent.com/VapeVoidware/VW-Add/"..tostring(commit).."/newnightsintheforest.lua", true)
+        return game:HttpGet("https://raw.githubusercontent.com/olzhacking/loader/"..tostring(commit).."/load.lua", true)
     end)
     if suc and type(res) == "string" then
         return res
