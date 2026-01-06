@@ -41,7 +41,7 @@ closeBtn.MouseButton1Click:Connect(function() sg:Destroy() end)
 local minBtn = Instance.new("TextButton", frame)
 minBtn.Size = UDim2.new(0, 30, 0, 30)
 minBtn.Position = UDim2.new(1, -30, 0, 0)
-minBtn.BackgroundColor3 = Color3.fromHex("770000")
+minBtn.BackgroundColor3 = Color3.new("0.1, 0.1, 0.1")
 minBtn.Text = "-"
 minBtn.TextColor3 = Color3.new(1, 1, 1)
 minBtn.BorderSizePixel = 0
