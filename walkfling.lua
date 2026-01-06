@@ -101,7 +101,7 @@ flingBtn.MouseButton1Click:Connect(function()
     
     if walkflinging then
         flingBtn.Text = "on"
-        flingBtn.BackgroundColor3 = Color3.fromHex("00ac48")
+        flingBtn.BackgroundColor3 = Color3.fromHex("770000")
         runFling()
     else
         flingBtn.Text = "off"
