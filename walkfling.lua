@@ -30,6 +30,14 @@ title.Font = Enum.Font.Code
 title.TextSize = 16
 title.TextColor3 = Color3.new(1, 1, 1)
 
+local closeBtn = Instance.new("TextButton", frame)
+closeBtn.Size = UDim2.new(0, 30, 0, 30)
+closeBtn.Position = UDim2.new(1, -30, 0, 0)
+closeBtn.BackgroundColor3 = Color3.fromHex("770000")
+closeBtn.Text = "X"
+closeBtn.TextColor3 = Color3.new(1, 1, 1)
+closeBtn.MouseButton1Click:Connect(function() sg:Destroy() end)
+
 local minBtn = Instance.new("TextButton", frame)
 minBtn.Size = UDim2.new(0, 30, 0, 30)
 minBtn.Position = UDim2.new(1, -30, 0, 0)
@@ -47,7 +55,7 @@ local flingBtn = Instance.new("TextButton", container)
 flingBtn.Size = UDim2.new(0.9, 0, 0, 40)
 flingBtn.Position = UDim2.new(0.05, 0, 0.2, 0)
 flingBtn.BackgroundColor3 = Color3.fromHex("770000")
-flingBtn.Text = "off"
+flingBtn.Text = "walkfling: off"
 flingBtn.Font = Enum.Font.Code
 flingBtn.TextSize = 14
 flingBtn.TextColor3 = Color3.new(1, 1, 1)
@@ -100,11 +108,11 @@ flingBtn.MouseButton1Click:Connect(function()
     walkflinging = not walkflinging
     
     if walkflinging then
-        flingBtn.Text = "on"
+        flingBtn.Text = "walkfling: on"
         flingBtn.BackgroundColor3 = Color3.fromHex("770000")
         runFling()
     else
-        flingBtn.Text = "off"
+        flingBtn.Text = "walkfling: off"
         flingBtn.BackgroundColor3 = Color3.fromHex("770000")
         
         -- Reset de velocidade ao desligar
