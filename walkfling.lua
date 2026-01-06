@@ -1,6 +1,6 @@
 --[[
     Walkfling: olz hub
-    Cores: #770000 (OFF) | #00ac48 (ON)
+    Cores: #770000 (OFF) | #770000 (ON)
 ]]
 
 local player = game.Players.LocalPlayer
@@ -23,25 +23,28 @@ frame.Active = true
 frame.Draggable = true
 
 local title = Instance.new("TextLabel", frame)
-title.Size = UDim2.new(0.7, 0, 0, 30)
+title.Size = UDim2.new(0.6, 0, 0, 30)
 title.BackgroundTransparency = 1
 title.Text = "coder: olz"
 title.Font = Enum.Font.Code
 title.TextSize = 16
 title.TextColor3 = Color3.new(1, 1, 1)
 
+-- Botão de Fechar (X) - Posicionado no canto direito
 local closeBtn = Instance.new("TextButton", frame)
 closeBtn.Size = UDim2.new(0, 30, 0, 30)
 closeBtn.Position = UDim2.new(1, -30, 0, 0)
 closeBtn.BackgroundColor3 = Color3.fromHex("770000")
 closeBtn.Text = "X"
 closeBtn.TextColor3 = Color3.new(1, 1, 1)
+closeBtn.BorderSizePixel = 0
 closeBtn.MouseButton1Click:Connect(function() sg:Destroy() end)
 
+-- Botão de Minimizar (-) - Posicionado ao lado do fechar
 local minBtn = Instance.new("TextButton", frame)
 minBtn.Size = UDim2.new(0, 30, 0, 30)
-minBtn.Position = UDim2.new(1, -30, 0, 0)
-minBtn.BackgroundColor3 = Color3.new("0.1, 0.1, 0.1")
+minBtn.Position = UDim2.new(1, -60, 0, 0)
+minBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 minBtn.Text = "-"
 minBtn.TextColor3 = Color3.new(1, 1, 1)
 minBtn.BorderSizePixel = 0
@@ -53,7 +56,7 @@ container.BackgroundTransparency = 1
 
 local flingBtn = Instance.new("TextButton", container)
 flingBtn.Size = UDim2.new(0.9, 0, 0, 40)
-flingBtn.Position = UDim2.new(0.05, 0, 0.2, 0)
+flingBtn.Position = UDim2.new(0.05, 0, 0.3, 0)
 flingBtn.BackgroundColor3 = Color3.fromHex("770000")
 flingBtn.Text = "walkfling: off"
 flingBtn.Font = Enum.Font.Code
@@ -77,7 +80,6 @@ local function runFling()
                 local vel = root.Velocity
                 local movel = 0.1
                 
-                -- Aplica a força extrema (sua lógica original)
                 root.Velocity = vel * 10000 + Vector3.new(0, 10000, 0)
 
                 runService.RenderStepped:Wait()
@@ -115,13 +117,13 @@ flingBtn.MouseButton1Click:Connect(function()
         flingBtn.Text = "walkfling: off"
         flingBtn.BackgroundColor3 = Color3.fromHex("770000")
         
-        -- Reset de velocidade ao desligar
         local root = getRoot(player.Character)
         if root then root.Velocity = Vector3.new(0,0,0) end
     end
 end)
 
--- Loop RGB no Título (Igual ao seu exemplo)
+-- Loop RGB no Título
 runService.RenderStepped:Connect(function()
     title.TextColor3 = Color3.fromHSV(tick() % 3 / 3, 1, 1)
 end)
+
